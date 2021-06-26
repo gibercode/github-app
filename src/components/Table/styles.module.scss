@@ -1,0 +1,17 @@
+._tableBody {
+  & tr {
+    cursor: pointer;
+  }
+
+  & tr:hover {
+    background-color: #f5f6fa;
+  }
+}
+
+._table {
+  text-align: center;
+}
+
+._text {
+  font-size: 1.2rem;
+}

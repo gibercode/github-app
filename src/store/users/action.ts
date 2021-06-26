@@ -1,7 +1,25 @@
-import { GET_USERS } from './action-types'
-import { actionObject, fetchService, users} from '@utils'
+import { GET_USERS, SEARCH_USERS } from './action-types'
+import { actionObject, fetchService, users, usersSearch } from '@utils'
+import { LOADER } from '@store/loader/action-types'
 
 export const getUsers: any = () => async (dispatch, getState) => {
-  const result = await fetchService(users, 'GET', {}, null)
-  dispatch(actionObject(GET_USERS, result))
+  try {
+    dispatch(actionObject(LOADER, { loader: true } ))
+    const result = await fetchService(`${users}?per_page=11`, 'GET', {}, null)
+    dispatch(actionObject(GET_USERS, { users: result } ))
+    dispatch(actionObject(LOADER, { loader: false } ))
+  } catch(error) {
+    return error
+  }
+}
+
+export const searchUsers = (payload) => async (dispatch, getState) =>  {
+  try {
+    dispatch(actionObject(LOADER, { loader: true } ))
+    const result = await fetchService(`${usersSearch}?q=${payload}?per_page=11`, 'GET', {}, null)
+    dispatch(actionObject(GET_USERS, { users: result?.items } ))
+    dispatch(actionObject(LOADER, { loader: false } ))
+  } catch(error){
+    return error
+  }
 }
