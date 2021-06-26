@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { NavbarComponent } from '@components'
 import { useDispatch } from 'react-redux'
 import { getUsers } from '@store/actions'
+import wrapper from '@store'
 
 const Home = () => {
 
@@ -27,5 +28,11 @@ const Home = () => {
     </>
   )
 }
+
+export const getServerSideProps = wrapper.getServerSideProps(store =>
+  () => {
+    return store.dispatch(getUsers())
+  }
+)
 
 export default Home
