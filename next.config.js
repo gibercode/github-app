@@ -4,6 +4,7 @@ module.exports = {
 
 module.exports = {
   images: {
-    domains: ['assets.vercel.com'],
+    domains: ['avatars.githubusercontent.com'],
+
   },
 }

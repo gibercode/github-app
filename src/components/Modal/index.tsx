@@ -9,7 +9,10 @@ const ModalComponent = ({ show, method, data }: any) => {
   return (
     <Modal isOpen={show} toggle={method} >
     <ModalBody>
-     <Image src={avatar_url} className={styles._image} alt='avatar-image' />
+      <div className={styles._imageParent}>
+     <Image src={avatar_url}  alt='avatar-image' width={150} height={150} className={styles._image}/>
+
+      </div>
      <p className={styles._text}>@{login}</p>
     </ModalBody>
     <ModalFooter>
