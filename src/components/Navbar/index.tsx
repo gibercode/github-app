@@ -23,6 +23,10 @@ const NavbarComponent = () => {
     if(router.pathname != 'route') router.push(route)
   }
 
+  const returnActive = (route) => {
+    if(router.pathname == route) return 'active'
+  }
+
   return (
     <>
     <Navbar color="dark" dark expand="md" className='p-3'>
@@ -31,11 +35,11 @@ const NavbarComponent = () => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink className={`${styles._link} active`}>Users</NavLink>
+            <NavItem className={styles._navItem}>
+              <NavLink className={`${styles._link} ${returnActive('/')}`} onClick={() => navigation('/')}>Users</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink className={styles._link} onClick={() => navigation('repositories')}>Repositories</NavLink>
+            <NavItem className={styles._navItem}>
+              <NavLink className={`${styles._link} ${returnActive('/repositories')}`} onClick={() => navigation('repositories')}>Repositories</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

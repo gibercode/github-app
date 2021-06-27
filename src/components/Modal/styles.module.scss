@@ -1,0 +1,15 @@
+._image {
+  $size: 9rem;
+  width: $size;
+  height: $size;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+._text {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}

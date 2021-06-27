@@ -1,9 +1,6 @@
 import axios from 'axios'
-import { API_URL } from '@utils'
 
-const API_BASE_URL = process.env.API_URL ?? API_URL
-
-export const fetchService = async (url: any, method: string = 'GET', data: any = null, auth: any | null = null) => {
+export const fetchService = async (url: any, method: string = 'GET', data: any = null) => {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/vnd.github.v3+json'

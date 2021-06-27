@@ -42,7 +42,11 @@ const makeStore: any = ({ isServer }) => {
 
   const persistConfig = {
     key: 'nameRoot',
-    storage
+    storage,
+    blacklist: [
+      'user',
+      'repositories'
+    ]
   }
 
   const persistedReducer = persistReducer(persistConfig, reducer)
