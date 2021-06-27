@@ -5,7 +5,7 @@ import { LOADER } from '@store/loader/action-types'
 export const getUsers: any = () => async (dispatch, getState) => {
   try {
     dispatch(actionObject(LOADER, { loader: true } ))
-    const result = await fetchService(`${users}?since=0&per_page=20`, 'GET', {}, null)
+    const result = await fetchService(`${users}?since=0&per_page=20`, 'GET', {})
     dispatch(actionObject(GET_USERS, { users: result } ))
     dispatch(actionObject(LOADER, { loader: false } ))
   } catch(error) {
@@ -16,7 +16,7 @@ export const getUsers: any = () => async (dispatch, getState) => {
 export const searchUsers = (payload) => async (dispatch, getState) =>  {
   try {
     dispatch(actionObject(LOADER, { loader: true } ))
-    const result = await fetchService(`${usersSearch}?q=${payload}&per_page=30`, 'GET', {}, null)
+    const result = await fetchService(`${usersSearch}?q=${payload}&per_page=30`, 'GET', {})
     dispatch(actionObject(GET_USERS, { users: result?.items } ))
     dispatch(actionObject(LOADER, { loader: false } ))
   } catch(error){
