@@ -58,7 +58,6 @@ const TableComponent: FC<NavProps> = ({ data, flag = 'users', labels }) => {
         <Col md="3">
         <Button color="info" className={`${styles._button} w-100`}  onClick={search}>
           { loader?.loader ? <Spinner color="dark" size="sm">{''}</Spinner> : "Search" }
-          {/* Search */}
         </Button>
         </Col>
       </Row>
