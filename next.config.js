@@ -1,16 +1,9 @@
-
-const withImages = require("next-images");
-
-
 module.exports = {
-  reactStrictMode: false,
+  reactStrictMode: true,
 }
 
-module.exports = withImages({
-    images: {
-        domains: ['https://github-app-gibercode.vercel.app/']
-    },
-    webpack(config, options) {
-        return config;
-    }
-});
+module.exports = {
+  images: {
+    domains: ['assets.vercel.com'],
+  },
+}
