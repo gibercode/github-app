@@ -1,5 +1,6 @@
 import { Modal, ModalBody, ModalFooter, Button } from 'reactstrap'
 import styles from './styles.module.scss'
+import Image from 'next/image'
 
 const ModalComponent = ({ show, method, data }: any) => {
 
@@ -8,7 +9,7 @@ const ModalComponent = ({ show, method, data }: any) => {
   return (
     <Modal isOpen={show} toggle={method} >
     <ModalBody>
-     <img src={avatar_url} className={styles._image} alt='avatar-image'></img>
+     <Image src={avatar_url} className={styles._image} alt='avatar-image' />
      <p className={styles._text}>@{login}</p>
     </ModalBody>
     <ModalFooter>
