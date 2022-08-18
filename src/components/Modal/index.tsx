@@ -8,16 +8,16 @@ const ModalComponent = ({ show, method, data }: any) => {
 
   return (
     <Modal isOpen={show} toggle={method} >
-    <ModalBody>
-      <div className={styles._imageParent}>
-     <Image src={avatar_url ?? 'https://picsum.photos/150/150'}  alt='avatar-image' width={150} height={150} className={styles._image}/>
+      <ModalBody>
+        <div className={styles._imageParent}>
+          <Image src={avatar_url || 'https://picsum.photos/150/150'} alt='avatar-image' width={150} height={150} className={styles._image} />
 
-      </div>
-     <p className={styles._text}>@{login}</p>
-    </ModalBody>
-    <ModalFooter>
-      <Button color="secondary" onClick={method}>Close</Button>
-    </ModalFooter>
+        </div>
+        <p className={styles._text}>@{login}</p>
+      </ModalBody>
+      <ModalFooter>
+        <Button color="secondary" onClick={method}>Close</Button>
+      </ModalFooter>
     </Modal>
   )
 }
